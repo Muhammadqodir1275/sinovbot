@@ -1,9 +1,13 @@
 import telebot
+import os
 
-# Bot tokeni (BotFather’dan olingan tokenni shu joyga yozing)
-TOKEN = "8442519283:AAEzfPoFjIoBrtuI3uQhBYuAfYgrt8IRfxw"
+from dotenv import load_dotenv  # .env faylni o‘qish uchun
 
-bot = telebot.TeleBot(TOKEN)
+# .env fayldan o‘zgaruvchilarni yuklash
+load_dotenv()
+
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+bot = telebot.TeleBot(BOT_TOKEN)
 
 # /start komandasi
 @bot.message_handler(commands=['start'])
